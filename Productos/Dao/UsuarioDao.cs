@@ -10,8 +10,8 @@ namespace Productos.Dao
     public class UsuarioDao
     {
 
-        public String[] users = { "engels", "dominick", "oscar" };
-        public String[] pws = { "123", "147", "159" };
+        public String[] users = { "engels", "dominick", "oscar", "admin" };
+        public String[] pws = { "123", "147", "159", "admin" };
 
         public Boolean Validar(String user, String pw)
         {

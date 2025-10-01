@@ -22,9 +22,16 @@ namespace Productos.Formularios
         {
             if (e.KeyCode == Keys.Enter)
             {
-                EdadDao.edades[EdadDao.pos++] = int.Parse(tbEdad.Text);
-                mostrarEdades();
+                agregar();
             }
+        }
+
+        public void agregar()
+        {
+            EdadDao.edades[EdadDao.pos++] = int.Parse(tbEdad.Text);
+            tbEdad.Clear();
+            tbEdad.Focus();
+            mostrarEdades();
         }
 
         public void mostrarEdades()
@@ -37,6 +44,16 @@ namespace Productos.Formularios
         private void FrmArreglo_Load(object sender, EventArgs e)
         {
             mostrarEdades();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            agregar();
+        }
+
+        private void tbEdad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 
