@@ -65,6 +65,7 @@
             this.tbEdad.Size = new System.Drawing.Size(72, 22);
             this.tbEdad.TabIndex = 1;
             this.tbEdad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbEdad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbEdad_KeyDown);
             // 
             // lbEdades
             // 
@@ -92,6 +93,7 @@
             this.Controls.Add(this.gbEdades);
             this.Name = "FrmArreglo";
             this.Text = "Arreglo";
+            this.Load += new System.EventHandler(this.FrmArreglo_Load);
             this.gbEdades.ResumeLayout(false);
             this.gbEdades.PerformLayout();
             this.ResumeLayout(false);

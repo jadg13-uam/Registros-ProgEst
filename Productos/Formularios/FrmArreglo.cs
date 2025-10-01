@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Productos.Dao;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,27 @@ namespace Productos.Formularios
         {
             InitializeComponent();
         }
+
+        private void tbEdad_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                EdadDao.edades[EdadDao.pos++] = int.Parse(tbEdad.Text);
+                mostrarEdades();
+            }
+        }
+
+        public void mostrarEdades()
+        {
+            lbEdades.DataSource = null;
+            lbEdades.DataSource = EdadDao.edades;
+            lbEdades.Refresh();
+        }
+
+        private void FrmArreglo_Load(object sender, EventArgs e)
+        {
+            mostrarEdades();
+        }
     }
+
 }
