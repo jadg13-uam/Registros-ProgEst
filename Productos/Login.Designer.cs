@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.chkShowPw = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -50,6 +51,7 @@
             this.tbUsuario.Name = "tbUsuario";
             this.tbUsuario.Size = new System.Drawing.Size(207, 22);
             this.tbUsuario.TabIndex = 1;
+            this.tbUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbUsuario_KeyDown);
             // 
             // label2
             // 
@@ -67,10 +69,11 @@
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(207, 22);
             this.tbPassword.TabIndex = 3;
+            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(118, 137);
+            this.btnLogin.Location = new System.Drawing.Point(118, 146);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(207, 44);
             this.btnLogin.TabIndex = 4;
@@ -78,11 +81,23 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // chkShowPw
+            // 
+            this.chkShowPw.AutoSize = true;
+            this.chkShowPw.Location = new System.Drawing.Point(176, 113);
+            this.chkShowPw.Name = "chkShowPw";
+            this.chkShowPw.Size = new System.Drawing.Size(149, 20);
+            this.chkShowPw.TabIndex = 5;
+            this.chkShowPw.Text = "Mostrar Contraseña.";
+            this.chkShowPw.UseVisualStyleBackColor = true;
+            this.chkShowPw.CheckedChanged += new System.EventHandler(this.chkShowPw_CheckedChanged);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 218);
+            this.Controls.Add(this.chkShowPw);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label2);
@@ -103,5 +118,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.CheckBox chkShowPw;
     }
 }
