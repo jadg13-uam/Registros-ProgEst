@@ -28,25 +28,17 @@ namespace Productos.Formularios
 
         public void agregar()
         {
-            int edad=0;
             try
             {
-                edad = int.Parse(tbEdad.Text);
-                EdadDao.edades[EdadDao.pos++] = edad;
+                if (int.TryParse(tbEdad.Text, out int edad) && edad > 0) EdadDao.edades[EdadDao.pos++] = edad;
+                else MessageBox.Show("Solo se permiten numero enteros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }catch(IndexOutOfRangeException) {
+                MessageBox.Show("No se puede agregr mas elementos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch(FormatException)
-            {
-                MessageBox.Show("No se permiten letras, solo números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            catch (IndexOutOfRangeException)
-            {
-                MessageBox.Show("No se admiten más elementos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }finally
+            finally
             {
                 Utileria();
-            }   
+            }
         }
 
         public void Utileria()
