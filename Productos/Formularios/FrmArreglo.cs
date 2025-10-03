@@ -28,7 +28,29 @@ namespace Productos.Formularios
 
         public void agregar()
         {
-            EdadDao.edades[EdadDao.pos++] = int.Parse(tbEdad.Text);
+            int edad=0;
+            try
+            {
+                edad = int.Parse(tbEdad.Text);
+                EdadDao.edades[EdadDao.pos++] = edad;
+            }
+            catch(FormatException)
+            {
+                MessageBox.Show("No se permiten letras, solo números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("No se admiten más elementos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }finally
+            {
+                Utileria();
+            }   
+        }
+
+        public void Utileria()
+        {
             tbEdad.Clear();
             tbEdad.Focus();
             mostrarEdades();
