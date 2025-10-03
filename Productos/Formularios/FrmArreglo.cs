@@ -47,7 +47,6 @@ namespace Productos.Formularios
             tbEdad.Clear();
             tbEdad.Focus();
             mostrarEdades();
-            MostrarPromedio();
         }
 
         public void mostrarEdades()
@@ -57,12 +56,6 @@ namespace Productos.Formularios
             lbEdades.Refresh();
         }
 
-        private void MostrarPromedio()
-        {
-            int suma = EdadDao.edades.Take(EdadDao.pos).Sum();
-            double promedio = suma / EdadDao.pos;
-            lblPromedio.Text = $"promedio: {promedio}";
-        }
         private void FrmArreglo_Load(object sender, EventArgs e)
         {
             mostrarEdades();
