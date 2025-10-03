@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -30,9 +31,9 @@ namespace Productos.Formularios
         {
             try
             {
-                if (int.TryParse(tbEdad.Text, out int edad) && edad > 0) EdadDao.edades[EdadDao.pos++] = edad;
+                if (int.TryParse(tbEdad.Text, out int edad) && edad > 0 && edad <= 120) EdadDao.edades[EdadDao.pos++] = edad;
                 else MessageBox.Show("Solo se permiten numero enteros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }catch(IndexOutOfRangeException) {
+            } catch (IndexOutOfRangeException) {
                 MessageBox.Show("No se puede agregr mas elementos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
@@ -46,6 +47,7 @@ namespace Productos.Formularios
             tbEdad.Clear();
             tbEdad.Focus();
             mostrarEdades();
+            MostrarPromedio();
         }
 
         public void mostrarEdades()
@@ -55,17 +57,24 @@ namespace Productos.Formularios
             lbEdades.Refresh();
         }
 
+        private void MostrarPromedio()
+        {
+            int suma = EdadDao.edades.Take(EdadDao.pos).Sum();
+            double promedio = suma / EdadDao.pos;
+            lblPromedio.Text = $"promedio: {promedio}";
+        }
         private void FrmArreglo_Load(object sender, EventArgs e)
         {
             mostrarEdades();
         }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
+        
+      
+        private void tbEdad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            agregar();
+
         }
 
-        private void tbEdad_KeyPress(object sender, KeyPressEventArgs e)
+        private void lblPromedio_Click(object sender, EventArgs e)
         {
 
         }

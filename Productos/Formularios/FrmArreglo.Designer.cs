@@ -33,13 +33,11 @@
             this.lbEdades = new System.Windows.Forms.ListBox();
             this.tbEdad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.gbEdades.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbEdades
             // 
-            this.gbEdades.Controls.Add(this.btnAgregar);
             this.gbEdades.Controls.Add(this.lblPromedio);
             this.gbEdades.Controls.Add(this.lbEdades);
             this.gbEdades.Controls.Add(this.tbEdad);
@@ -59,14 +57,15 @@
             this.lblPromedio.TabIndex = 3;
             this.lblPromedio.Text = "Promedio: 0";
             this.lblPromedio.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblPromedio.Click += new System.EventHandler(this.lblPromedio_Click);
             // 
             // lbEdades
             // 
             this.lbEdades.FormattingEnabled = true;
             this.lbEdades.ItemHeight = 16;
-            this.lbEdades.Location = new System.Drawing.Point(13, 96);
+            this.lbEdades.Location = new System.Drawing.Point(13, 64);
             this.lbEdades.Name = "lbEdades";
-            this.lbEdades.Size = new System.Drawing.Size(120, 164);
+            this.lbEdades.Size = new System.Drawing.Size(120, 196);
             this.lbEdades.TabIndex = 2;
             // 
             // tbEdad
@@ -87,16 +86,6 @@
             this.label1.Size = new System.Drawing.Size(43, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Edad:";
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(61, 54);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 1;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // FrmArreglo
             // 
@@ -120,6 +109,5 @@
         private System.Windows.Forms.ListBox lbEdades;
         private System.Windows.Forms.TextBox tbEdad;
         private System.Windows.Forms.Label lblPromedio;
-        private System.Windows.Forms.Button btnAgregar;
     }
 }
